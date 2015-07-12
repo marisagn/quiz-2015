@@ -4,28 +4,33 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('quiz:server');
-var http = require('http');
+//var app = require('../app');
+//var debug = require('debug')('quiz:server');
+var debug = require('debug')('quiz');
+var app=require('../app')
+//var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+//var port = normalizePort(process.env.PORT || '3000');
+//app.set('port', port);
+app.set('port',process.env.PORT || 3000);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
+var server=app.listen(app.get('port'), function() {debug('Express sever listening on port' + server.address().port);
+});
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen('port');
 server.on('error', onError);
 server.on('listening', onListening);
 
